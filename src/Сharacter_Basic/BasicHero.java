@@ -13,6 +13,7 @@ public abstract class BasicHero implements GameInterface {
     public Vector2 position;
     protected int effort;
 
+
     public BasicHero(int healthCurrent, int healthMax, int armor, int[] damage, String nameHero, int pos_X, int pos_Y, int effort){
         this.healthCurrent = healthCurrent;
         this.healthMax = healthMax;
@@ -30,7 +31,7 @@ public abstract class BasicHero implements GameInterface {
 
     public BasicHero findNextEnemy(ArrayList<BasicHero> enemies){
         BasicHero closestEnemy = null;
-        for (int i = 1; i < enemies.size(); i++){
+        for (int i = 0; i < enemies.size(); i++){
             if (enemies.get(i).healthCurrent > 0) {
                 if (closestEnemy == null || enemies.get(i).healthCurrent > 0 && this.position.rangeToEnemy(enemies.get(i).position) < this.position.rangeToEnemy(closestEnemy.position)){
                     closestEnemy = enemies.get(i);
@@ -60,10 +61,10 @@ public abstract class BasicHero implements GameInterface {
     public int getHp(){
         return healthCurrent;
     }
-
-    abstract public String getInfo();
-
-    abstract public String getType();
+//
+//    abstract public String getInfo();
+//
+//    abstract public String getType();
 
 
 }

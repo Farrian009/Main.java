@@ -1,6 +1,7 @@
 package Characters;
 
 import Сharacter_Basic.Archer;
+import Сharacter_Basic.BasicHero;
 import Сharacter_Basic.Vector2;
 
 
@@ -28,6 +29,11 @@ public class Sniper extends Archer {
     @Override
     public String getInfo(){
         return "Снайпер";
+    }
+
+    @Override
+    public String getType() {
+        return "Sniper";
     }
 
 }

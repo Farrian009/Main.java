@@ -49,14 +49,6 @@ public class Main {
             System.out.println("Black win!");
         }
 
-//        heroesWhite.forEach(n -> System.out.println(n.toString()));
-//        System.out.println();
-//        heroesWhite.forEach(n -> n.printEnemyDistance(heroesBlack));
-//        System.out.println("*******************************");
-//        System.out.println("Black team");
-//        heroesBlack.forEach(n -> System.out.println(n.toString()));
-//        System.out.println();
-//        heroesBlack.forEach(n -> n.printEnemyDistance(heroesWhite));
     }
 
     static ArrayList<BasicHero> createTeam(int n, int y){

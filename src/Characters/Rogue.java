@@ -27,4 +27,9 @@ public class Rogue extends Melee {
     public String getInfo(){
         return "Разбойник";
     }
+
+    @Override
+    public String getType() {
+        return "Rogue";
+    }
 }

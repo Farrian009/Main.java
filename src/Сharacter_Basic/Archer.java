@@ -52,23 +52,6 @@ public abstract class Archer extends BasicHero{
 //        return archerToRefill;
 //    }
 
-//    public BasicHero findEnemy(ArrayList<BasicHero> enemies){
-//        BasicHero heroToShoot = enemies.get(0);
-//        for (int i = 0; i < enemies.size(); i++){
-//            if (heroToShoot.healthCurrent < heroToShoot.healthMax){
-//                heroToShoot = enemies.get(i);
-//            }
-//        }
-//        if (this.position.rangeToEnemy(heroToShoot.position) > maxRange){
-//            for (BasicHero h: enemies){
-//                if (heroToShoot.healthCurrent > h.healthCurrent){
-//                    heroToShoot = h;
-//                }
-//            }
-//        }
-//        return heroToShoot;
-//    }
-
     @Override
     public void stepInGame(ArrayList<BasicHero> enemies, ArrayList<BasicHero> allies){
         if (healthCurrent == 0) return;
@@ -83,11 +66,9 @@ public abstract class Archer extends BasicHero{
         if (this.position.rangeToEnemy(heroTMP.position) <= maxRange){
             damageTMP = this.random.nextInt(damage[0], damage[1]);
             attack(heroTMP, damageTMP);
-//            System.out.println("Нанесен урон" + this.nameHero + "/" + heroTMP.nameHero + damageTMP);
         } else {
             damageTMP = this.random.nextInt(5, damage[0]);
             attack(heroTMP, damageTMP);
-//            System.out.println("Нанесен урон" + this.nameHero + "/" + heroTMP.nameHero + damageTMP);
         }
         currentArrows --;
     }
@@ -97,25 +78,4 @@ public abstract class Archer extends BasicHero{
         return "Archer";
     }
 
-    public Vector2 moveArcher(BasicHero enemy){
-        Vector2 delta = position.getDirection(enemy.position);
-        Vector2 directionTMP = new Vector2(position.pos_X, position.pos_Y);
-        if (delta.pos_X < 0){
-            directionTMP.pos_X++;
-            return directionTMP;
-        }
-        if (delta.pos_X > 0){
-            directionTMP.pos_X++;
-            return directionTMP;
-        }
-        if (delta.pos_Y < 0){
-            directionTMP.pos_Y++;
-            return directionTMP;
-        }
-        if (delta.pos_Y < 0){
-            directionTMP.pos_Y++;
-            return directionTMP;
-        }
-        return directionTMP;
-    }
 }

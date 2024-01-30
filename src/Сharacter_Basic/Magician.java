@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Magician extends BasicHero{
-    protected int maxMana, currentMana, generationMana, intelligence, manaCost;
+    protected int maxMana, currentMana, generationMana, intelligence, healingPoint;
     boolean flagRespaun;
     Random random = new Random();
 
@@ -15,8 +15,6 @@ public abstract class Magician extends BasicHero{
         this.intelligence = intelligence;
     }
 
-
-
     @Override
     public String toString(){
         return (nameHero + " здоровье: " + healthCurrent + "/" + healthMax + " координаты " + pos_X + "/" + pos_Y);
@@ -24,12 +22,22 @@ public abstract class Magician extends BasicHero{
 
     public void getHealing(BasicHero injured){
         if (injured.healthCurrent > 0 && injured.healthCurrent < injured.healthMax){
-            healingPoints = this.random.nextInt(damage[0], damage[1]);
-            injured.healthCurrent = injured.healthCurrent + healingPoints;
+            healingPoint = this.random.nextInt(damage[0], damage[1]);
+            injured.healthCurrent = injured.healthCurrent + healingPoint;
             if (injured.healthCurrent > injured.healthMax){
                 injured.healthCurrent = injured.healthMax;
             }
         }
+    }
+
+    public BasicHero allyMinHealth(ArrayList<BasicHero> allies){
+        BasicHero heroTMP = allies.get(0);
+        for (BasicHero a: allies){
+            if (a.healthCurrent > 0 && a.healthCurrent < heroTMP.healthCurrent){
+                heroTMP = a;
+            }
+        }
+        return heroTMP;
     }
 
     @Override
@@ -37,7 +45,7 @@ public abstract class Magician extends BasicHero{
         if (this.healthCurrent == 0) return;
         getRespaun(enemies, allies);
         if (!flagRespaun){
-            getHealing(findMinHealthAllies(allies));
+            getHealing(allyMinHealth(allies));
         }
         this.currentMana += generationMana;
         if (currentMana > maxMana){

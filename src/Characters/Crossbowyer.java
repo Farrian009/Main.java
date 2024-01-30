@@ -1,6 +1,7 @@
 package Characters;
 
 import Сharacter_Basic.Archer;
+import Сharacter_Basic.BasicHero;
 
 public class Crossbowyer extends Archer {
     public Crossbowyer(String nameHero, int pos_X, int pos_Y){
@@ -26,6 +27,11 @@ public class Crossbowyer extends Archer {
     @Override
     public String getInfo(){
         return "Арбалетчик";
+    }
+
+    @Override
+    public String getType() {
+        return "Crossbowyer";
     }
 
 }

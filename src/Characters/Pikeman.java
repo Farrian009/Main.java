@@ -27,4 +27,9 @@ public class Pikeman extends Melee {
     public String getInfo(){
         return "Копейщик";
     }
+
+    @Override
+    public String getType() {
+        return "Pikeman";
+    }
 }

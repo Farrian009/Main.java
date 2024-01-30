@@ -26,4 +26,9 @@ public class Monk extends Magician {
         return "Монах";
     }
 
+    @Override
+    public String getType() {
+        return "Monk";
+    }
+
 }

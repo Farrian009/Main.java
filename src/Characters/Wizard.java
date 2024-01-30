@@ -1,6 +1,7 @@
 package Characters;
 
 import Сharacter_Basic.Magician;
+import Сharacter_Basic.BasicHero;
 
 public class Wizard extends Magician {
     public Wizard(String nameHero, int pos_X, int pos_Y){
@@ -24,5 +25,10 @@ public class Wizard extends Magician {
     @Override
     public String getInfo(){
         return "Волшебник";
+    }
+
+    @Override
+    public String getType() {
+        return "Wizard";
     }
 }
